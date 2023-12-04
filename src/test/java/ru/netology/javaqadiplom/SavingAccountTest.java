@@ -104,4 +104,12 @@ public class SavingAccountTest {
             new SavingAccount(2_000, 1_000, -10_000, 5);
         });
     }
+
+    @Test
+    public void purchaseWithNegativeInitialBalance() {
+
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            new SavingAccount(-2_000, 1_000, 10_000, 5);
+        });
+    }
 }
