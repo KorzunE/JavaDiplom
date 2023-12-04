@@ -74,4 +74,18 @@ public class SavingAccountTest {
 
         Assertions.assertEquals(1_000, account.getBalance());
     }
+
+    @Test
+    public void purchaseWithAnAmountLessThanTheMinimumBalance() {
+        SavingAccount account = new SavingAccount(
+                2_000,
+                1_000,
+                10_000,
+                5
+        );
+
+        account.pay(1_500);
+
+        Assertions.assertEquals(2_000, account.getBalance());
+    }
 }
