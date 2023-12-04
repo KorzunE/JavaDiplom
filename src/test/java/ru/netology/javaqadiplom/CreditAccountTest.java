@@ -31,6 +31,12 @@ public class CreditAccountTest {
             new CreditAccount(-3_000, 5_000, 15);
         });
     }
+    @Test
+    public void shouldSetNegativeRate() {
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            new CreditAccount(3_000, 5_000, -15);
+        });
+    }
 
     @Test
     public void shouldAddToBalance() {
@@ -66,7 +72,16 @@ public class CreditAccountTest {
         );
         Assertions.assertEquals(0, account.yearChange());
     }
-
+    @Test
+    public void shouldCalculateYearChangeZeroBalance() {
+        CreditAccount account = new CreditAccount(
+                2000,
+                5_000,
+                15
+        );
+        account.pay(2000);
+        Assertions.assertEquals(0, account.yearChange());
+    }
 
 
 }
