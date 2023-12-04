@@ -42,7 +42,7 @@ public class CreditAccountTest {
     @Test
     public void shouldAddToBalance() {
         CreditAccount account = new CreditAccount(
-                2000,
+                2_000,
                 5_000,
                 15
         );
@@ -104,6 +104,6 @@ public class CreditAccountTest {
         );
         account.pay(10_000);
 
-        Assertions.assertEquals(0, account.getBalance());
+        Assertions.assertEquals(2_000, account.getBalance());
     }
 }
