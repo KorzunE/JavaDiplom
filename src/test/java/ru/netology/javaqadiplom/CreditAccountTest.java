@@ -57,5 +57,16 @@ public class CreditAccountTest {
 
         Assertions.assertEquals(1_000, account.getBalance());
     }
+    @Test
+    public void shouldCalculateYearChangePositiveBalance() {
+        CreditAccount account = new CreditAccount(
+                2000,
+                5_000,
+                15
+        );
+        Assertions.assertEquals(0, account.yearChange());
+    }
+
+
 
 }
