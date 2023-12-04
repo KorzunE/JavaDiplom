@@ -120,4 +120,19 @@ public class SavingAccountTest {
             new SavingAccount(2_000, 1_000, 10_000, -5);
         });
     }
+
+    @Test
+    public void addAmountGreaterThanTheMaximumBalance() {
+        SavingAccount account = new SavingAccount(
+                2_000,
+                1_000,
+                10_000,
+                5
+        );
+
+        account.add(9_000);
+
+        Assertions.assertEquals(2_000, account.getBalance());
+    }
+    
 }
