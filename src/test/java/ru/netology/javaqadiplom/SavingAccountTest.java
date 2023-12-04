@@ -46,4 +46,18 @@ public class SavingAccountTest {
 
         Assertions.assertEquals(2_000, account.getBalance());
     }
+
+    @Test
+    public void purchaseWithAnAmountGreaterThanTheInitialAmount() {
+        SavingAccount account = new SavingAccount(
+                2_000,
+                1_000,
+                10_000,
+                5
+        );
+
+        account.pay(3_000);
+
+        Assertions.assertEquals(2_000, account.getBalance());
+    }
 }
