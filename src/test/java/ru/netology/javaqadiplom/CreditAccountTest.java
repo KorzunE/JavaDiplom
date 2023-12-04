@@ -24,12 +24,14 @@ public class CreditAccountTest {
             new CreditAccount(3_000, -5_000, 15);
         });
     }
+
     @Test
     public void shouldSetNegativeInitialBalance() {
         Assertions.assertThrows(IllegalArgumentException.class, () -> {
             new CreditAccount(-3_000, 5_000, 15);
         });
     }
+
     @Test
     public void shouldAddToBalance() {
         CreditAccount account = new CreditAccount(
@@ -41,6 +43,19 @@ public class CreditAccountTest {
         account.add(3_000);
 
         Assertions.assertEquals(5_000, account.getBalance());
+    }
+
+    @Test
+    public void shouldPay() {
+        CreditAccount account = new CreditAccount(
+                2000,
+                5_000,
+                15
+        );
+
+        account.pay(1_000);
+
+        Assertions.assertEquals(1_000, account.getBalance());
     }
 
 }
