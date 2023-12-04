@@ -17,4 +17,17 @@ public class CreditAccountTest {
 
         Assertions.assertEquals(3_000, account.getBalance());
     }
+
+    @Test
+    public void shouldSetNegativeCreditLimit() {
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            new CreditAccount(3_000, -5_000, 15);
+        });
+    }
+    @Test
+    public void shouldSetNegativeInitialBalance() {
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            new CreditAccount(-3_000, 5_000, 15);
+        });
+    }
 }
