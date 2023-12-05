@@ -78,7 +78,7 @@ public class CreditAccountTest {
     @Test
     public void shouldCalculateYearChangeZeroBalance() {
         CreditAccount account = new CreditAccount(
-                2000,
+                2_000,
                 5_000,
                 15
         );
