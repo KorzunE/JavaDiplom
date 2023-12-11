@@ -85,6 +85,7 @@ public class CreditAccountTest {
         account.pay(2000);
         Assertions.assertEquals(0, account.yearChange());
     }
+
     @Test
     public void shouldGetCreditLimit() {
         CreditAccount account = new CreditAccount(
@@ -95,6 +96,7 @@ public class CreditAccountTest {
 
         Assertions.assertEquals(5_000, account.getCreditLimit());
     }
+
     @Test
     public void shouldPayAboveCreditLimit() {
         CreditAccount account = new CreditAccount(
